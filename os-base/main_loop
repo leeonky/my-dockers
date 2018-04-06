@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$WORKING_ADDR" ]; then
+	echo -n "Try to mount nfs $WORKING_ADDR... "
+	sudo mkdir -p /share && chown $USER:$USER /share
+	sudo mount -o nolock -t nfs $WORKING_ADDR /share && echo 'Done.'
+fi
+
+while [ 1 ]
+do
+	sleep 1
+done
