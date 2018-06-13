@@ -1,0 +1,18 @@
+#! /bin/bash
+
+set_source() {
+	gem sources --remove "$(gem sources -l | grep http)" && \
+	gem sources -a "$1" && \
+	gem sources -u
+}
+
+main() {
+	local src=$(gem sources -l | grep http)
+	if echo "$src" | grep -q taobao; then
+		set_source "https://rubygems.org/"
+	else
+		set_source "https://gems.ruby-china.org/"
+	fi
+}
+
+main

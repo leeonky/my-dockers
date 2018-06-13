@@ -1,0 +1,216 @@
+source 'https://rubygems.org'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~>5.2'
+# active model
+gem 'activemodel'
+#decorator(view model)
+gem 'draper'
+#slim view engine
+gem 'slim-rails'
+
+# Use SCSS for stylesheets
+gem 'sass-rails'
+gem 'less-rails'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails'
+
+
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
+
+# we can use bower's jquery directly, but rails need jquery_ujs to implement model delete for model index page.
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder'
+# Xml parser
+gem 'actionpack-xml_parser'
+gem 'xml-simple'
+
+#restful client
+gem 'rest-client'
+
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
+
+# Default values for AR models
+gem "default_value_for"
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
+# teack model data changes
+gem 'paper_trail'
+gem 'impressionist'
+
+gem 'public_activity' # track the activity
+
+gem 'wisper'
+gem 'wisper-activerecord'
+
+# rails step-by-step wizard controller
+gem 'wicked'
+# Organise ActiveRecord model into a tree structure
+gem 'ancestry'
+
+gem 'wechat'
+gem 'wx_pay'
+gem 'weui-rails'
+
+gem 'alipay', '~> 0.15.0'
+
+# Generic hooks with callbacks for Ruby.
+gem 'hooks'
+
+# search and filter active record data
+gem 'scoped_search'
+gem 'country_select'
+gem 'hashids' #hash ids
+
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
+gem 'devise'
+gem 'pundit'
+gem 'rolify'
+gem 'rucaptcha'
+
+gem 'mina'
+gem 'mina-sidekiq', require: false
+gem 'mina-unicorn', require: false
+gem 'mina-nginx', require: false
+
+gem 'factory_bot_rails'
+
+gem 'surveyor', :git => 'git@git.hilife100.com:hilife100/surveyor.git'
+# gem 'surveyor', path: '/Users/tsuijy/projects/hongshu/ruby/surveyor'
+gem 'erubis'
+gem 'GB2260'
+gem 'china_city', :git => 'git@git.hilife100.com:hilife100/china_city.git'
+# gem 'china_city', path: '/Users/tsuijy/projects/OpenSources/ruby/china_city'
+gem 'rubyXL'
+
+# money
+gem 'money'
+gem 'money-rails'
+gem 'currencies'
+
+# file upload
+gem 'carrierwave'
+gem 'qiniu'
+gem 'carrierwave-qiniu'
+gem 'carrierwave-base64'
+gem 'file_validators'
+# gem "rmagick"
+gem 'mini_magick'
+
+# generate the pdf via html
+gem 'wicked_pdf'
+
+# calendar
+gem "simple_calendar", "~> 2.0"
+
+gem 'sinatra'
+gem 'whenever'
+gem 'sidekiq'
+gem 'activejob-retry'
+
+gem 'redis-namespace'
+gem 'redis'
+gem 'redis-rails'
+gem 'redis-rack-cache'
+
+# ping plus plus 第三方支付
+gem 'pingpp'
+
+# Colored output to console
+gem "colorize"
+
+# api documentation
+gem 'apipie-rails'
+
+gem 'pghero'
+
+# aliyun sms
+gem 'aliyun-cloud_sms', :git => 'git@git.hilife100.com:hilife100/aliyun-cloud_sms.git'
+
+gem 'ransack'
+
+# load faster
+gem 'bootsnap', require: false
+
+gem 'filter_set', git: 'https://github.com/leeonky/filter_set.git'
+
+gem 'baidu-aip'
+
+group :production do
+  # Use Unicorn as the app server
+  gem 'unicorn'
+
+  # Use postgresql as the database for Active Record
+  gem 'pg'
+end
+
+group :development do
+  gem "foreman"
+  gem 'brakeman', require: false
+  gem 'rerun'
+  gem 'bullet'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # Docs generator
+  gem "sdoc"
+  # thin instead webrick
+  gem 'thin'
+
+  # Zeus preloads your Rails app so that your normal development tasks such as console, server, generate, and specs/tests take less than one second.
+  gem 'zeus'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # gem 'spring'
+  # gem 'spring-commands-rspec'
+end
+
+group :development, :test do
+
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console  
+  gem 'byebug'
+  gem 'awesome_print', '~> 1.2.0', require: false
+
+  gem 'rspec-expectations'
+  gem 'simplecov', :require => false
+  gem 'wisper-rspec', :require => false
+
+  #sqlite
+  gem 'sqlite3'
+
+  #rspec
+  gem 'rspec-rails'
+
+  #cucumber
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
+  gem 'site_prism' #page model for cucumber page.
+  gem 'ule_page', :git => 'git@git.hilife100.com:hilife100/ule_page.git'
+  # gem 'ule_page', :path => '/Users/tsuijy/Projects/Odde/ruby/ule_page'
+  gem 'poltergeist'
+
+  gem 'parallel_tests'
+
+end
+
+group :test do
+  gem 'webmock'
+  gem 'rails-controller-testing'
+end
