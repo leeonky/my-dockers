@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$WORKING_ADDR" ]; then
+if [ "${WORKING_TYPE:-}" == 'NFS' ] && [ "$WORKING_ADDR" ]; then
 	echo -n "Try to mount nfs $WORKING_ADDR... "
 	sudo mkdir -p /share && chown $USER:$USER /share
 	sudo mount -o nolock -t nfs $WORKING_ADDR /share && echo 'Done.'
