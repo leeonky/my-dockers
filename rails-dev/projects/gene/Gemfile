@@ -46,8 +46,8 @@ gem 'bcrypt'
 # teack model data changes
 gem 'paper_trail'
 gem 'impressionist'
-
 gem 'public_activity' # track the activity
+gem 'exception-track'
 
 gem 'wisper'
 gem 'wisper-activerecord'
@@ -67,7 +67,6 @@ gem 'alipay', '~> 0.15.0'
 gem 'hooks'
 
 # search and filter active record data
-gem 'scoped_search'
 gem 'country_select'
 gem 'hashids' #hash ids
 
@@ -180,7 +179,7 @@ end
 
 group :development, :test do
 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console  
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'awesome_print', '~> 1.2.0', require: false
 
