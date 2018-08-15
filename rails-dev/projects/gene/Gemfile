@@ -13,6 +13,7 @@ gem 'slim-rails'
 gem 'sass-rails'
 gem 'less-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem "font-awesome-rails"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
@@ -22,9 +23,11 @@ gem 'coffee-rails'
 
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'bootstrap-select-rails'
 
 # we can use bower's jquery directly, but rails need jquery_ujs to implement model delete for model index page.
 gem 'jquery-rails'
+gem 'rails-jquery-autocomplete'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -92,6 +95,9 @@ gem 'GB2260'
 gem 'china_city', :git => 'git@git.hilife100.com:hilife100/china_city.git'
 # gem 'china_city', path: '/Users/tsuijy/projects/OpenSources/ruby/china_city'
 gem 'rubyXL'
+gem 'spreadsheet'
+gem 'zlib'
+gem 'rubyzip'
 
 # money
 gem 'money'
@@ -144,7 +150,15 @@ gem 'bootsnap', require: false
 
 gem 'filter_set', git: 'https://github.com/leeonky/filter_set.git'
 
+gem 'rails-linkage', git: 'https://github.com/leeonky/rails-linkage.git'
+
+gem 'rails-linkage-extends', git: 'https://github.com/leeonky/rails-linkage-extends.git'
+
 gem 'baidu-aip'
+
+gem 'deep_cloneable', '~> 2.3.2'
+
+gem 'ruby-pinyin'
 
 group :production do
   # Use Unicorn as the app server

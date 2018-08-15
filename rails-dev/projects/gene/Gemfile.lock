@@ -40,9 +40,36 @@ GIT
 
 GIT
   remote: https://github.com/leeonky/filter_set.git
-  revision: 51393ede027ee159e2fe2e47c76fde20aa5a26de
+  revision: 327cc54d40023a7326fad09bc42f5e7b925dc2b2
   specs:
     filter_set (0.0.1)
+      font-awesome-rails
+      nokogiri
+      rails (>= 4.2.10)
+      rubyXL
+      sass-rails
+      slim-rails
+
+GIT
+  remote: https://github.com/leeonky/rails-linkage-extends.git
+  revision: 86878fd33a2a45a749782f311ee7edc8daf9c945
+  specs:
+    rails-linkage-extends (0.1.0)
+      filter_set
+      jquery-rails
+      rails (>= 4.2.10)
+      rails-linkage
+      sass-rails
+      uri-js-rails
+
+GIT
+  remote: https://github.com/leeonky/rails-linkage.git
+  revision: 3140c7a0bc7de33d6c662bbb162d71d498a94aea
+  specs:
+    rails-linkage (0.1.0)
+      jquery-rails
+      rails (>= 4.2.10)
+      sass-rails
 
 GEM
   remote: https://rubygems.org/
@@ -126,6 +153,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-select-rails (1.12.4)
     bootstrap_form (2.7.0)
     brakeman (4.3.1)
     builder (3.2.3)
@@ -209,6 +237,8 @@ GEM
     daemons (1.2.6)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
+    deep_cloneable (2.3.2)
+      activerecord (>= 3.1.0, < 6)
     default_value_for (3.1.0)
       activerecord (>= 3.2.0, < 6.0)
     devise (4.4.3)
@@ -247,6 +277,8 @@ GEM
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     foreman (0.84.0)
       thor (~> 0.19.1)
     formtastic (2.2.1)
@@ -352,7 +384,7 @@ GEM
     mustermann (1.0.2)
     netrc (0.11.0)
     nio4r (2.3.1)
-    nokogiri (1.8.3)
+    nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     open4 (1.3.4)
     orm_adapter (0.5.0)
@@ -393,7 +425,7 @@ GEM
       rack (>= 0.4)
     rack-protection (2.0.3)
       rack
-    rack-test (1.0.0)
+    rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
       actioncable (= 5.2.0)
@@ -417,6 +449,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-jquery-autocomplete (1.0.4)
+      rails (>= 3.2)
     railties (5.2.0)
       actionpack (= 5.2.0)
       activesupport (= 5.2.0)
@@ -469,6 +503,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rmmseg-cpp-new (0.3.1)
     rolify (5.2.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
@@ -491,6 +526,9 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
+    ruby-ole (1.2.12.1)
+    ruby-pinyin (0.5.0)
+      rmmseg-cpp-new (~> 0.3.1)
     rubyXL (3.3.29)
       nokogiri (>= 1.4.4)
       rubyzip (>= 1.1.6)
@@ -499,7 +537,7 @@ GEM
     rucaptcha (2.2.0)
       railties (>= 3.2)
     safe_yaml (1.0.4)
-    sass (3.5.6)
+    sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -545,6 +583,8 @@ GEM
       slim (~> 3.0)
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
+    spreadsheet (1.1.7)
+      ruby-ole (>= 1.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -581,6 +621,7 @@ GEM
       kgio (~> 2.6)
       raindrops (~> 0.7)
     uniform_notifier (1.11.0)
+    uri-js-rails (1.15.2)
     uuid (2.3.9)
       macaddr (~> 1.0)
     uuidtools (2.1.5)
@@ -627,6 +668,7 @@ GEM
       nokogiri (~> 1.8)
     zeus (0.15.14)
       method_source (>= 0.6.7)
+    zlib (1.0.0)
 
 PLATFORMS
   ruby
@@ -647,6 +689,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   bootstrap-sass
+  bootstrap-select-rails
   bootstrap_form
   brakeman
   bullet
@@ -664,6 +707,7 @@ DEPENDENCIES
   cucumber-rails
   currencies
   database_cleaner
+  deep_cloneable (~> 2.3.2)
   default_value_for
   devise
   draper
@@ -672,6 +716,7 @@ DEPENDENCIES
   factory_bot_rails
   file_validators
   filter_set!
+  font-awesome-rails
   foreman
   hashids
   hooks
@@ -697,6 +742,9 @@ DEPENDENCIES
   qiniu
   rails (~> 5.2)
   rails-controller-testing
+  rails-jquery-autocomplete
+  rails-linkage!
+  rails-linkage-extends!
   ransack
   redis
   redis-namespace
@@ -707,7 +755,9 @@ DEPENDENCIES
   rolify
   rspec-expectations
   rspec-rails
+  ruby-pinyin
   rubyXL
+  rubyzip
   rucaptcha
   sass-rails
   sdoc
@@ -718,6 +768,7 @@ DEPENDENCIES
   sinatra
   site_prism
   slim-rails
+  spreadsheet
   sprockets-rails
   sqlite3
   surveyor!
@@ -742,6 +793,7 @@ DEPENDENCIES
   wx_pay
   xml-simple
   zeus
+  zlib
 
 BUNDLED WITH
    1.16.2
