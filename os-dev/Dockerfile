@@ -24,7 +24,7 @@ RUN apt-get -y install \
 	libcurl4-openssl-dev \
 	gettext && \
 	apt-get clean && \
-	wget https://gitee.com/leeonky/tools_dev/raw/master/git-2.10.2.tar.gz && \
+	wget http://pkg_host:20000/git-2.10.2.tar.gz && \
 	tar -zxf git-2.10.2.tar.gz && \
 	cd git-2.10.2 && \
 	./configure && \

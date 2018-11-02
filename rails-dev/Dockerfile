@@ -10,7 +10,7 @@ ARG SECRET_HOST
 
 RUN sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev nodejs npm && \
 	cd /tmp && \
-	wget https://gitee.com/leeonky/tools_dev/raw/master/redis-3.2.11.tar.gz && \
+	wget http://pkg_host:20000/redis-3.2.11.tar.gz && \
 	tar xzf redis-3.2.11.tar.gz && \
 	cd redis-3.2.11/ && \
 	make -j4 && \
