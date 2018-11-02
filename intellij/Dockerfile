@@ -17,5 +17,6 @@ ADD install_plugin_zip.sh $USER_HOME/bin/install_plugin_zip.sh
 RUN sudo chmod +x $USER_HOME/bin/* && sudo chown $USER_NAME:$USER_NAME $USER_HOME/bin/*
 
 #ideavim plugin
-RUN $USER_HOME/bin/install_plugin_zip.sh "http://plugins.jetbrains.com/files/164/51219/IdeaVim-0.50.zip?updateId=51219"
+RUN $USER_HOME/bin/install_plugin_zip.sh "http://plugins.jetbrains.com/files/164/51219/IdeaVim-0.50.zip?updateId=51219" &&\
+	$USER_HOME/bin/install_plugin_zip.sh "http://plugins.jetbrains.com/files/6317/51517/lombok-plugin-0.22-2018.2.zip?updateId=51517&pluginId=6317"
 
