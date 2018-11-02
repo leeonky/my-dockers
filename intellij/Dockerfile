@@ -2,12 +2,15 @@ FROM leeonky/x11app:ubuntu
 
 USER $USER_NAME
 
-RUN cd $USER_HOME/ && \
-	wget https://download.jetbrains.com/idea/ideaIU-2018.2.5.tar.gz && \
-	tar -xvf ideaIU-2018.2.5.tar.gz && \
+RUN sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
+
+RUN cd $USER_HOME/ &&\
+	wget https://download.jetbrains.com/idea/ideaIU-2018.2.5.tar.gz &&\
+	tar -xvf ideaIU-2018.2.5.tar.gz &&\
+	mv idea-* idea &&\
 	rm ideaIU-2018.2.5.tar.gz
 
-ENV IDEA_PATH "$USER_HOME/idea-IU-182.4892.20/"
+ENV IDEA_PATH "$USER_HOME/idea"
 
 ADD install_plugin_zip.sh $USER_HOME/bin/install_plugin_zip.sh
 
