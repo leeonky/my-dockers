@@ -36,3 +36,5 @@ RUN cd $IDEA_CONF_PATH &&\
 	mv idea-config/.git* config/ &&\
 	rm -r idea-config
 
+ADD .ideavimrc $USER_HOME/.ideavimrc
+
