@@ -9,5 +9,5 @@ RUN sudo apt-get update && sudo apt-get install -y openjdk-8-jdk &&\
 	rm gradle-$GRADLE_VERSIN-bin.zip &&\
 	sudo ln -s "$USER_HOME/gradle/bin/gradle" /usr/local/bin/
 
-RUN mkdir -p "$USER_HOME/.gradle" && chmod 777 "$USER_HOME/.gradle"
+RUN mkdir -p "$USER_HOME/.gradle/caches/modules-2/files-2.1" && chown $USER_NAME:$USER_NAME -R "$USER_HOME/.gradle"
 

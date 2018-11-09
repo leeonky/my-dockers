@@ -17,7 +17,9 @@ ENV IDEA_CONF_PATH $USER_HOME/.IntelliJIdea2018.2/
 RUN sudo chmod +x $USER_HOME/bin/* && sudo chown $USER_NAME:$USER_NAME $USER_HOME/bin/* &&\
 	mkdir -p $IDEA_CONF_PATH &&\
 	mkdir $USER_HOME/idea_system &&\
-	ln -s $USER_HOME/idea_system $IDEA_CONF_PATH/system
+	ln -s $USER_HOME/idea_system $IDEA_CONF_PATH/system &&\
+	mkdir -p "$USER_HOME/.gradle/caches/modules-2/files-2.1" &&\
+	chown $USER_NAME:$USER_NAME -R "$USER_HOME/.gradle"
 
 #install fonts
 #RUN cd $USER_HOME && curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
