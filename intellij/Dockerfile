@@ -2,24 +2,28 @@ FROM leeonky/x11app:ubuntu
 
 USER $USER_NAME
 
-RUN sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
-
+ENV idea_package=ideaIU-2018.2.5.tar.gz
+ENV idea_conf_path=.IntelliJIdea2018.2
 RUN cd $USER_HOME/ &&\
-	wget https://download.jetbrains.com/idea/ideaIU-2018.2.5.tar.gz &&\
-	tar -xvf ideaIU-2018.2.5.tar.gz &&\
+	wget https://download.jetbrains.com/idea/$idea_package &&\
+	tar -xvf $idea_package &&\
 	mv idea-* idea &&\
-	rm ideaIU-2018.2.5.tar.gz
+	rm $idea_package
+
+RUN sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
 
 ADD install_plugin_zip.sh $USER_HOME/bin/install_plugin_zip.sh
 
-ENV IDEA_CONF_PATH $USER_HOME/.IntelliJIdea2018.2/
+ENV IDEA_CONF_PATH $USER_HOME/$idea_conf_path/
 
 RUN sudo chmod +x $USER_HOME/bin/* && sudo chown $USER_NAME:$USER_NAME $USER_HOME/bin/* &&\
 	mkdir -p $IDEA_CONF_PATH &&\
 	mkdir $USER_HOME/idea_system &&\
 	ln -s $USER_HOME/idea_system $IDEA_CONF_PATH/system &&\
 	mkdir -p "$USER_HOME/.gradle/caches/modules-2/files-2.1" &&\
-	chown $USER_NAME:$USER_NAME -R "$USER_HOME/.gradle"
+	chown $USER_NAME:$USER_NAME -R "$USER_HOME/.gradle" &&\
+	mkdir -p "$USER_HOME/.m2" &&\
+	chown $USER_NAME:$USER_NAME -R "$USER_HOME/.m2"
 
 #install fonts
 #RUN cd $USER_HOME && curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
