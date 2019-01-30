@@ -10,7 +10,7 @@ RUN cd $USER_HOME/ &&\
 	mv idea-* idea &&\
 	rm $idea_package
 
-RUN sudo apt-get update && sudo apt-get install -y openjdk-11-jdk
+RUN sudo apt-get update && sudo apt-get install -y openjdk-11-jdk openjfx
 
 ADD install_plugin_zip.sh $USER_HOME/bin/install_plugin_zip.sh
 
