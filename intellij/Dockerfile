@@ -2,6 +2,8 @@ FROM leeonky/x11app:ubuntu
 
 USER $USER_NAME
 
+RUN sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-fast update && sudo apt-fast install -y openjdk-11-jdk openjfx
+
 ENV idea_package=ideaIU-2018.2.5.tar.gz
 ENV idea_conf_path=.IntelliJIdea2018.2
 RUN cd $USER_HOME/ &&\
@@ -9,8 +11,6 @@ RUN cd $USER_HOME/ &&\
 	tar -xvf $idea_package &&\
 	mv idea-* idea &&\
 	rm $idea_package
-
-RUN sudo apt-get update && sudo apt-get install -y openjdk-11-jdk openjfx
 
 ADD install_plugin_zip.sh $USER_HOME/bin/install_plugin_zip.sh
 

@@ -1,9 +1,10 @@
 FROM leeonky/os-dev:ubuntu
 
-ENV GRADLE_VERSIN=4.10.2
+ENV GRADLE_VERSIN=5.2.1
 
-RUN sudo apt-get update && sudo apt-get install -y openjdk-8-jdk &&\
-	curl -o "$USER_HOME/gradle-$GRADLE_VERSIN-bin.zip" https://downloads.gradle.org/distributions/gradle-$GRADLE_VERSIN-bin.zip &&\
+RUN sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-fast update && sudo apt-fast install -y openjdk-11-jdk
+
+RUN curl -o "$USER_HOME/gradle-$GRADLE_VERSIN-bin.zip" https://downloads.gradle.org/distributions/gradle-$GRADLE_VERSIN-bin.zip &&\
 	cd "$USER_HOME" && unzip gradle-$GRADLE_VERSIN-bin.zip &&\
 	mv "gradle-$GRADLE_VERSIN" "gradle" &&\
 	rm gradle-$GRADLE_VERSIN-bin.zip &&\

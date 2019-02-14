@@ -3,6 +3,7 @@ FROM ubuntu:18.04
 ####### source list ######
 ADD sources.list /etc/apt/sources.list
 
+
 #netbase tcp/ip support
 #locales-all all languages utf-8 encoding
 #nfs-common nfs client
@@ -18,8 +19,11 @@ RUN apt-get update && \
 	locales \
 	tzdata \
 	curl \
+	wget \
 	&& apt-get clean \
 	&& locale-gen en_US && locale-gen en_US.UTF-8 && update-locale && localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8
+
+RUN /bin/bash -c "$(curl -sL https://git.io/vokNn)"
 
 ###### add user gauss
 ENV USER_NAME gauss

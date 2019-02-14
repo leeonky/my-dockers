@@ -4,7 +4,7 @@ USER root
 
 ###### install basic tools
 #skip deltarpm
-RUN apt-get update && apt-get install -y \
+RUN apt-fast update && apt-fast install -y \
 	software-properties-common \
 	net-tools \
 	iputils-ping \
@@ -16,14 +16,14 @@ RUN apt-get update && apt-get install -y \
 	unzip \
 	dos2unix \
 	jq && \
-	apt-get clean
+	apt-fast clean
 
 ###### install git and config
-RUN apt-get -y install \
+RUN apt-fast -y install \
 	zlib1g-dev \
 	libcurl4-openssl-dev \
 	gettext && \
-	apt-get clean && \
+	apt-fast clean && \
 	wget http://pkg_host:20000/git-2.10.2.tar.gz && \
 	tar -zxf git-2.10.2.tar.gz && \
 	cd git-2.10.2 && \
