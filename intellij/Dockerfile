@@ -4,8 +4,8 @@ USER $USER_NAME
 
 RUN sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-fast update && sudo apt-fast install -y openjdk-11-jdk openjfx
 
-ENV idea_package=ideaIU-2018.2.5.tar.gz
-ENV idea_conf_path=.IntelliJIdea2018.2
+ENV idea_package=ideaIU-2018.3.4.tar.gz
+ENV idea_conf_path=.IntelliJIdea2018.3
 RUN cd $USER_HOME/ &&\
 	wget https://download.jetbrains.com/idea/$idea_package &&\
 	tar -xvf $idea_package &&\
@@ -31,10 +31,10 @@ RUN sudo chmod +x $USER_HOME/bin/* && sudo chown $USER_NAME:$USER_NAME $USER_HOM
 #ideavim plugin
 RUN mkdir -p $IDEA_CONF_PATH/config/plugins &&\
 	cd $IDEA_CONF_PATH/config/plugins &&\
-	$USER_HOME/bin/install_plugin_zip.sh "http://plugins.jetbrains.com/files/164/51219/IdeaVim-0.50.zip?updateId=51219" &&\
-	$USER_HOME/bin/install_plugin_zip.sh "http://plugins.jetbrains.com/files/6317/51517/lombok-plugin-0.22-2018.2.zip?updateId=51517&pluginId=6317" &&\
-	curl -o intellij-plugin-save-actions-1.2.0.jar "https://plugins.jetbrains.com/files/7642/49943/intellij-plugin-save-actions-1.2.0.jar?updateId=49943&pluginId=7642" &&\
-	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/8347/51658/intellij-swagger.zip?updateId=51658&pluginId=8347"
+	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/164/58115/IdeaVim-0.51.zip?updateId=58115&pluginId=164&family=intellij" &&\
+	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/6317/53293/lombok-plugin-0.23-2018.3.zip?updateId=53293&pluginId=6317&family=intellij" &&\
+	curl -o intellij-plugin-save-actions-1.2.0.jar "https://plugins.jetbrains.com/files/7642/54687/intellij-plugin-save-actions-1.4.0.jar?updateId=54687&pluginId=7642&family=intellij" &&\
+	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/8347/58093/intellij-swagger.zip?updateId=58093&pluginId=8347&family=intellij"
 
 RUN cd $IDEA_CONF_PATH &&\
 	git clone https://github.com/leeonky/idea-config.git &&\
