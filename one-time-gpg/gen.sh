@@ -48,5 +48,6 @@ echo name=$name
 echo email=$email
 echo password=$password
 echo key_server=$key_server
+echo key_id=$key_id
 echo private_key=$private_key
 
