@@ -39,7 +39,7 @@ key_id="$(gpg --list-secret-keys --with-colons | grep '^fpr:' | head -n1 | awk -
 echo ">>>>>>> Send key to $key_server"
 gpg --keyserver "$key_server" --send-keys "$key_id"
 
-private_key="$(gpg --export-secret-keys "$key_id" | base64)"
+private_key="$(gpg --export-secret-keys "$key_id" | base64 | tr -d '\n')"
 
 echo "
 
@@ -50,4 +50,10 @@ echo password=$password
 echo key_server=$key_server
 echo key_id=$key_id
 echo private_key=$private_key
+
+echo "
+>>>>>>> FOR sonatype <<<<<<<"
+echo SIGNING_KEYID=${key_id: -8}
+echo SIGNING_PASSWORD=$password
+echo GPG_KEY=$private_key
 
