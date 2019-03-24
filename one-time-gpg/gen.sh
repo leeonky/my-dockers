@@ -1,5 +1,4 @@
-#! /bin/bash -e
-key_servers=('keyserver.ubuntu.com', 'pool.sks-keyservers.net', 'keys.gnupg.net')
+key_servers=('hkp://keyserver.ubuntu.com' 'hkp://pool.sks-keyservers.net' 'hkp://keys.gnupg.net')
 read -p "Enter your real name: " name
 read -p "Enter your email: " email
 read -p "Enter your password: " password
@@ -20,12 +19,13 @@ key_server="${key_servers[$((key_server-1))]}"
 
 cat >conf <<EOF
 %echo Generating a standard key
-Key-Type: DSA
-Key-Length: 1024
-Subkey-Type: ELG-E
-Subkey-Length: 1024
+Key-Type: RSA
+Key-Length: 2048
+Subkey-Type: RSA
+Subkey-Length: 2048
 Name-Real: $name
 Name-Email: $email
+Expire-Date: 700d
 Passphrase: $password
 %commit
 %echo done
@@ -35,10 +35,9 @@ echo ">>>>>>> Generate key"
 gpg --batch --gen-key ./conf
 
 key_id="$(gpg --list-secret-keys --with-colons | grep '^fpr:' | head -n1 | awk -F\: '{print $10}')"
-SIGNING_KEYID=${key_id: -8}
 
 echo ">>>>>>> Send key to $key_server"
-gpg --keyserver "$key_server" --send-keys "$SIGNING_KEYID"
+gpg --keyserver "$key_server" --send-keys "$key_id"
 
 private_key="$(gpg --export-secret-keys "$key_id" | base64 | tr -d '\n')"
 
@@ -54,7 +53,7 @@ echo private_key=$private_key
 
 echo "
 >>>>>>> FOR sonatype <<<<<<<"
-echo SIGNING_KEYID=$SIGNING_KEYID
+echo SIGNING_KEYID=${key_id: -8}
 echo SIGNING_PASSWORD=$password
 echo GPG_KEY=$private_key
 
