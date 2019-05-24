@@ -4,8 +4,7 @@ USER $USER_NAME
 
 RUN sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-fast update && sudo apt-fast install -y openjdk-11-jdk openjfx
 
-ENV idea_package=ideaIU-2018.3.4.tar.gz
-ENV idea_conf_path=.IntelliJIdea2018.3
+ENV idea_package=ideaIU-2019.1.2.tar.gz
 RUN cd $USER_HOME/ &&\
 	wget https://download.jetbrains.com/idea/$idea_package &&\
 	tar -xvf $idea_package &&\
@@ -14,6 +13,7 @@ RUN cd $USER_HOME/ &&\
 
 ADD install_plugin_zip.sh $USER_HOME/bin/install_plugin_zip.sh
 
+ENV idea_conf_path=.IntelliJIdea2019.1
 ENV IDEA_CONF_PATH $USER_HOME/$idea_conf_path/
 
 RUN sudo chmod +x $USER_HOME/bin/* && sudo chown $USER_NAME:$USER_NAME $USER_HOME/bin/* &&\
