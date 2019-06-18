@@ -2,7 +2,7 @@ FROM leeonky/x11app:ubuntu
 
 USER $USER_NAME
 
-RUN sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-fast update && sudo apt-fast install -y openjdk-11-jdk openjfx
+RUN sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-fast update && sudo apt-fast install -y openjdk-11-jdk openjfx openjdk-8-jdk
 
 ENV idea_package=ideaIU-2019.1.2.tar.gz
 RUN cd $USER_HOME/ &&\
