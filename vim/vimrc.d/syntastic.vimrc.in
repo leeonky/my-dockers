@@ -9,7 +9,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-
+" for c/c++
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -26,5 +26,8 @@ function Toggle_syntastic_error_window()
 		Error
 	endif
 endfunction
+
+" for js
+let g:syntastic_javascript_checkers = ['eslint']
 
 nnoremap <silent> <leader>nv :call Toggle_syntastic_error_window()<cr>

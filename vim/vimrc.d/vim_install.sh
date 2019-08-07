@@ -1,3 +1,5 @@
+#!/bin/bash -x
+
 install_plugin() {
 	local file=$1
 	cd ~/.vim/bundle
