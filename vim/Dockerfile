@@ -3,7 +3,8 @@ FROM leeonky/os-dev:ubuntu
 USER $USER_NAME
 
 ###### install vim extended
-RUN sudo apt-get update && sudo apt-get install -y \
+RUN sudo add-apt-repository ppa:jonathonf/vim && \
+	sudo apt-get update && sudo apt-get install -y \
 	vim vim-common vim-nox && \
 	sudo apt-get clean
 
@@ -21,8 +22,6 @@ USER $USER_NAME
 ADD vimrc $USER_HOME/.vimrc
 ADD vimrc.d $USER_HOME/.vimrc.d
 ADD .eslintrc $USER_HOME/.eslintrc
-RUN sudo chown $USER_NAME:$USER_NAME $USER_HOME/.vimrc && \
-	sudo chown $USER_NAME:$USER_NAME $USER_HOME/.vimrc.d -R && \
-	sudo chown $USER_NAME:$USER_NAME $USER_HOME/.eslintrc -R && \
+RUN sudo chown $USER_NAME:$USER_NAME $USER_HOME -R && \
 	/bin/bash --login $USER_HOME/.vimrc.d/vim_install.sh
 
