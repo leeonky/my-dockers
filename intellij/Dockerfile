@@ -32,9 +32,9 @@ RUN sudo chmod +x $USER_HOME/bin/* && sudo chown $USER_NAME:$USER_NAME $USER_HOM
 RUN mkdir -p $IDEA_CONF_PATH/config/plugins &&\
 	cd $IDEA_CONF_PATH/config/plugins &&\
 	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/164/58115/IdeaVim-0.51.zip?updateId=58115&pluginId=164&family=intellij" &&\
-	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/6317/53293/lombok-plugin-0.23-2018.3.zip?updateId=53293&pluginId=6317&family=intellij" &&\
+	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/6317/61697/lombok-plugin-0.25-EAP.zip?updateId=61697&pluginId=6317&family=INTELLIJ" &&\
 	curl -o intellij-plugin-save-actions-1.2.0.jar "https://plugins.jetbrains.com/files/7642/54687/intellij-plugin-save-actions-1.4.0.jar?updateId=54687&pluginId=7642&family=intellij" &&\
-	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/8347/58093/intellij-swagger.zip?updateId=58093&pluginId=8347&family=intellij"
+	$USER_HOME/bin/install_plugin_zip.sh "https://plugins.jetbrains.com/files/8347/62152/intellij-swagger.zip?updateId=62152&pluginId=8347&family=INTELLIJ"
 
 RUN cd $IDEA_CONF_PATH &&\
 	git clone https://github.com/leeonky/idea-config.git &&\
