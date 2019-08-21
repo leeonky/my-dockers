@@ -57,7 +57,7 @@ function process_project() {
 			#install_rails_by_gemfile
 		#fi
 		exec_cmd gem install bundle
-		bundle config mirror.https://rubygems.org https://ruby.taobao.org
+		bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 		mkdir -p ~/.ssh
 		echo "$sec_file" > ~/.ssh/id_rsa
 		echo "$host_file" > ~/.ssh/known_hosts

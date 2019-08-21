@@ -8,7 +8,8 @@ ARG SECRET_RSA
 
 ARG SECRET_HOST
 
-RUN sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev nodejs npm && \
+RUN sudo apt-fast update && sudo apt-fast install -y imagemagick libmagickwand-dev nodejs npm && \
+	apt-fast clean && \
 	cd /tmp && \
 	wget http://pkg_host:20000/redis-3.2.11.tar.gz && \
 	tar xzf redis-3.2.11.tar.gz && \
@@ -25,7 +26,7 @@ ADD projects /tmp/projects
 ADD setup_project.sh /tmp/setup_project.sh
 
 RUN sudo chown $USER_NAME:$USER_NAME /tmp/projects -R
-RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/gene "$SECRET_RSA" "$SECRET_HOST"
+#RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/gene "$SECRET_RSA" "$SECRET_HOST"
 #RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/oulu
 #RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/ule-web
 RUN /bin/bash --login /tmp/setup_project.sh /tmp/projects/default "$SECRET_RSA" "$SECRET_HOST"

@@ -11,7 +11,7 @@ main() {
 	if echo "$src" | grep -q taobao; then
 		set_source "https://rubygems.org/"
 	else
-		set_source "https://gems.ruby-china.org/"
+		set_source "https://gems.ruby-china.com"
 	fi
 }
 
