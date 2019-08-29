@@ -10,7 +10,7 @@ ADD sources.list /etc/apt/sources.list
 #locales support set locale
 ### skip:
 ###net-tools dpkg-dev
-RUN apt-get update && \
+RUN apt-get update && apt-get -y upgrade && \
 	apt-get -y install \
 	sudo \
 	netbase \
