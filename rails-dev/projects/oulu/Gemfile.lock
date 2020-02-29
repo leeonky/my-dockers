@@ -325,7 +325,7 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
-    puma (3.9.1)
+    puma (3.12.3)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     qiniu (6.8.1)
@@ -608,7 +608,7 @@ DEPENDENCIES
   pg
   pry
   pry-nav
-  puma (~> 3.0)
+  puma (~> 3.12)
   pundit
   qiniu
   rack-cors
